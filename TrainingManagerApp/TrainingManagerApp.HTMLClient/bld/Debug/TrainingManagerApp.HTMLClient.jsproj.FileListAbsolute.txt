@@ -1,0 +1,6 @@
+c:\users\delordson\documents\visual studio 2013\Projects\TrainingManagerApp\TrainingManagerApp\TrainingManagerApp.HTMLClient\bin\Debug\LSResourceGeneratorsTask.mcs
+c:\users\delordson\documents\visual studio 2013\Projects\TrainingManagerApp\TrainingManagerApp\TrainingManagerApp.HTMLClient\bin\Debug\LSClientCodeGeneratorsTask.mcs
+C:\Users\Delordson\Documents\Visual Studio 2013\Projects\BitBucket\TrainingManagerApp\TrainingManagerApp\TrainingManagerApp.HTMLClient\bin\Debug\LSResourceGeneratorsTask.mcs
+C:\Users\Delordson\Documents\Visual Studio 2013\Projects\BitBucket\TrainingManagerApp\TrainingManagerApp\TrainingManagerApp.HTMLClient\bin\Debug\LSClientCodeGeneratorsTask.mcs
+C:\Users\delordsonadmin\Documents\Visual Studio 2013\Projects\BitBucket\TrainingManagerApp\TrainingManagerApp\TrainingManagerApp.HTMLClient\bin\Debug\LSResourceGeneratorsTask.mcs
+C:\Users\delordsonadmin\Documents\Visual Studio 2013\Projects\BitBucket\TrainingManagerApp\TrainingManagerApp\TrainingManagerApp.HTMLClient\bin\Debug\LSClientCodeGeneratorsTask.mcs

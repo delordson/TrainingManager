@@ -1,0 +1,480 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="ApplicationDataStore" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="ApplicationDataStore">
+    <EntitySet Name="Courses" EntityType="ApplicationDataStore.Course" store:Type="Tables" Schema="dbo" Table="Courses" />
+    <EntitySet Name="CourseStatuses" EntityType="ApplicationDataStore.CourseStatus" store:Type="Tables" Schema="dbo" Table="CourseStatuses" />
+    <EntitySet Name="EmployeeCourseAssignments" EntityType="ApplicationDataStore.EmployeeCourseAssignment" store:Type="Tables" Schema="dbo" Table="EmployeeCourseAssignments" />
+    <EntitySet Name="EmployeeGroupCourseAssignments" EntityType="ApplicationDataStore.EmployeeGroupCourseAssignment" store:Type="Tables" Schema="dbo" Table="EmployeeGroupCourseAssignments" />
+    <EntitySet Name="EmployeeGroups" EntityType="ApplicationDataStore.EmployeeGroup" store:Type="Tables" Schema="dbo" Table="EmployeeGroups" />
+    <EntitySet Name="EmployeeJobRoles" EntityType="ApplicationDataStore.EmployeeJobRole" store:Type="Tables" Schema="dbo" Table="EmployeeJobRoles" />
+    <EntitySet Name="Employees" EntityType="ApplicationDataStore.Employee" store:Type="Tables" Schema="dbo" Table="Employees" />
+    <EntitySet Name="EmployeeTrainingRecords" EntityType="ApplicationDataStore.EmployeeTrainingRecord" store:Type="Tables" Schema="dbo" Table="EmployeeTrainingRecords" />
+    <EntitySet Name="JobRoleCourseAssignments" EntityType="ApplicationDataStore.JobRoleCourseAssignment" store:Type="Tables" Schema="dbo" Table="JobRoleCourseAssignments" />
+    <EntitySet Name="JobRoles" EntityType="ApplicationDataStore.JobRole" store:Type="Tables" Schema="dbo" Table="JobRoles" />
+    <EntitySet Name="TrainingSessionAttendees" EntityType="ApplicationDataStore.TrainingSessionAttendee" store:Type="Tables" Schema="dbo" Table="TrainingSessionAttendees" />
+    <EntitySet Name="TrainingSessions" EntityType="ApplicationDataStore.TrainingSession" store:Type="Tables" Schema="dbo" Table="TrainingSessions" />
+    <AssociationSet Name="EmployeeGroupCourseAssignment_Course" Association="ApplicationDataStore.EmployeeGroupCourseAssignment_Course">
+      <End Role="Course" EntitySet="Courses" />
+      <End Role="EmployeeGroupCourseAssignment" EntitySet="EmployeeGroupCourseAssignments" />
+    </AssociationSet>
+    <AssociationSet Name="EmployeeCourseAssignment_Course" Association="ApplicationDataStore.EmployeeCourseAssignment_Course">
+      <End Role="Course" EntitySet="Courses" />
+      <End Role="EmployeeCourseAssignment" EntitySet="EmployeeCourseAssignments" />
+    </AssociationSet>
+    <AssociationSet Name="JobRoleCourseAssignment_Course" Association="ApplicationDataStore.JobRoleCourseAssignment_Course">
+      <End Role="Course" EntitySet="Courses" />
+      <End Role="JobRoleCourseAssignment" EntitySet="JobRoleCourseAssignments" />
+    </AssociationSet>
+    <AssociationSet Name="EmployeeTrainingRecord_Course" Association="ApplicationDataStore.EmployeeTrainingRecord_Course">
+      <End Role="Course" EntitySet="Courses" />
+      <End Role="EmployeeTrainingRecord" EntitySet="EmployeeTrainingRecords" />
+    </AssociationSet>
+    <AssociationSet Name="TrainingSession_Course" Association="ApplicationDataStore.TrainingSession_Course">
+      <End Role="Course" EntitySet="Courses" />
+      <End Role="TrainingSession" EntitySet="TrainingSessions" />
+    </AssociationSet>
+    <AssociationSet Name="CourseStatus_Course" Association="ApplicationDataStore.CourseStatus_Course">
+      <End Role="CourseStatus" EntitySet="CourseStatuses" />
+      <End Role="Course" EntitySet="Courses" />
+    </AssociationSet>
+    <AssociationSet Name="EmployeeGroup_Employee" Association="ApplicationDataStore.EmployeeGroup_Employee">
+      <End Role="EmployeeGroup" EntitySet="EmployeeGroups" />
+      <End Role="Employee" EntitySet="Employees" />
+    </AssociationSet>
+    <AssociationSet Name="EmployeeGroupCourseAssignment_EmployeeGroup" Association="ApplicationDataStore.EmployeeGroupCourseAssignment_EmployeeGroup">
+      <End Role="EmployeeGroup" EntitySet="EmployeeGroups" />
+      <End Role="EmployeeGroupCourseAssignment" EntitySet="EmployeeGroupCourseAssignments" />
+    </AssociationSet>
+    <AssociationSet Name="EmployeeCourseAssignment_Employee" Association="ApplicationDataStore.EmployeeCourseAssignment_Employee">
+      <End Role="Employee" EntitySet="Employees" />
+      <End Role="EmployeeCourseAssignment" EntitySet="EmployeeCourseAssignments" />
+    </AssociationSet>
+    <AssociationSet Name="EmployeeJobRole_Employee" Association="ApplicationDataStore.EmployeeJobRole_Employee">
+      <End Role="Employee" EntitySet="Employees" />
+      <End Role="EmployeeJobRole" EntitySet="EmployeeJobRoles" />
+    </AssociationSet>
+    <AssociationSet Name="EmployeeTrainingRecord_Employee" Association="ApplicationDataStore.EmployeeTrainingRecord_Employee">
+      <End Role="Employee" EntitySet="Employees" />
+      <End Role="EmployeeTrainingRecord" EntitySet="EmployeeTrainingRecords" />
+    </AssociationSet>
+    <AssociationSet Name="TrainingSession_Employee" Association="ApplicationDataStore.TrainingSession_Employee">
+      <End Role="Employee" EntitySet="Employees" />
+      <End Role="TrainingSession" EntitySet="TrainingSessions" />
+    </AssociationSet>
+    <AssociationSet Name="TrainingSessionAttendee_Employee" Association="ApplicationDataStore.TrainingSessionAttendee_Employee">
+      <End Role="Employee" EntitySet="Employees" />
+      <End Role="TrainingSessionAttendee" EntitySet="TrainingSessionAttendees" />
+    </AssociationSet>
+    <AssociationSet Name="EmployeeJobRole_JobRole" Association="ApplicationDataStore.EmployeeJobRole_JobRole">
+      <End Role="JobRole" EntitySet="JobRoles" />
+      <End Role="EmployeeJobRole" EntitySet="EmployeeJobRoles" />
+    </AssociationSet>
+    <AssociationSet Name="JobRoleCourseAssignment_JobRole" Association="ApplicationDataStore.JobRoleCourseAssignment_JobRole">
+      <End Role="JobRole" EntitySet="JobRoles" />
+      <End Role="JobRoleCourseAssignment" EntitySet="JobRoleCourseAssignments" />
+    </AssociationSet>
+    <AssociationSet Name="TrainingSessionAttendee_TrainingSession" Association="ApplicationDataStore.TrainingSessionAttendee_TrainingSession">
+      <End Role="TrainingSession" EntitySet="TrainingSessions" />
+      <End Role="TrainingSessionAttendee" EntitySet="TrainingSessionAttendees" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Course">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="CourseReference" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="CourseTitle" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="CourseDescription" Type="nvarchar(max)" />
+    <Property Name="CourseVersion" Type="int" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="255" />
+    <Property Name="Created" Type="datetimeoffset" />
+    <Property Name="ModifiedBy" Type="nvarchar" MaxLength="255" />
+    <Property Name="Modified" Type="datetimeoffset" />
+    <Property Name="RowVersion" Type="rowversion" Nullable="false" StoreGeneratedPattern="Computed" />
+    <Property Name="CourseStatus_Course" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CourseStatus">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Status" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="255" />
+    <Property Name="Created" Type="datetimeoffset" />
+    <Property Name="ModifiedBy" Type="nvarchar" MaxLength="255" />
+    <Property Name="Modified" Type="datetimeoffset" />
+    <Property Name="RowVersion" Type="rowversion" Nullable="false" StoreGeneratedPattern="Computed" />
+  </EntityType>
+  <EntityType Name="EmployeeCourseAssignment">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="DateAssigned" Type="datetime" Nullable="false" />
+    <Property Name="TargetCompletionDate" Type="datetime" Nullable="false" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="255" />
+    <Property Name="Created" Type="datetimeoffset" />
+    <Property Name="ModifiedBy" Type="nvarchar" MaxLength="255" />
+    <Property Name="Modified" Type="datetimeoffset" />
+    <Property Name="RowVersion" Type="rowversion" Nullable="false" StoreGeneratedPattern="Computed" />
+    <Property Name="EmployeeCourseAssignment_Course" Type="int" Nullable="false" />
+    <Property Name="EmployeeCourseAssignment_Employee" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EmployeeGroupCourseAssignment">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="DateAssigned" Type="datetime" Nullable="false" />
+    <Property Name="TargetCompletionDate" Type="datetime" Nullable="false" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="255" />
+    <Property Name="Created" Type="datetimeoffset" />
+    <Property Name="ModifiedBy" Type="nvarchar" MaxLength="255" />
+    <Property Name="Modified" Type="datetimeoffset" />
+    <Property Name="RowVersion" Type="rowversion" Nullable="false" StoreGeneratedPattern="Computed" />
+    <Property Name="EmployeeGroupCourseAssignment_Course" Type="int" Nullable="false" />
+    <Property Name="EmployeeGroupCourseAssignment_EmployeeGroup" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EmployeeGroup">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="EmployeeGroupName" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="255" />
+    <Property Name="Created" Type="datetimeoffset" />
+    <Property Name="ModifiedBy" Type="nvarchar" MaxLength="255" />
+    <Property Name="Modified" Type="datetimeoffset" />
+    <Property Name="RowVersion" Type="rowversion" Nullable="false" StoreGeneratedPattern="Computed" />
+  </EntityType>
+  <EntityType Name="EmployeeJobRole">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="255" />
+    <Property Name="Created" Type="datetimeoffset" />
+    <Property Name="ModifiedBy" Type="nvarchar" MaxLength="255" />
+    <Property Name="Modified" Type="datetimeoffset" />
+    <Property Name="RowVersion" Type="rowversion" Nullable="false" StoreGeneratedPattern="Computed" />
+    <Property Name="EmployeeJobRole_Employee" Type="int" Nullable="false" />
+    <Property Name="EmployeeJobRole_JobRole" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Employee">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="LastName" Type="nvarchar" Nullable="false" MaxLength="75" />
+    <Property Name="FirstName" Type="nvarchar" Nullable="false" MaxLength="75" />
+    <Property Name="UserName" Type="nvarchar" Nullable="false" MaxLength="75">
+      <UniqueIndexAnnotation xmlns="http://schemas.microsoft.com/LightSwitch/2013/edm/annotations" />
+    </Property>
+    <Property Name="Email" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="Current" Type="bit" Nullable="false" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="255" />
+    <Property Name="Created" Type="datetimeoffset" />
+    <Property Name="ModifiedBy" Type="nvarchar" MaxLength="255" />
+    <Property Name="Modified" Type="datetimeoffset" />
+    <Property Name="RowVersion" Type="rowversion" Nullable="false" StoreGeneratedPattern="Computed" />
+    <Property Name="EmployeeGroup_Employee" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EmployeeTrainingRecord">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="DateAssigned" Type="datetime" Nullable="false" />
+    <Property Name="TargetCompletionDate" Type="datetime" Nullable="false" />
+    <Property Name="DateTrainingCommenced" Type="datetime" />
+    <Property Name="DateTrainingCompleted" Type="datetime" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="255" />
+    <Property Name="Created" Type="datetimeoffset" />
+    <Property Name="ModifiedBy" Type="nvarchar" MaxLength="255" />
+    <Property Name="Modified" Type="datetimeoffset" />
+    <Property Name="RowVersion" Type="rowversion" Nullable="false" StoreGeneratedPattern="Computed" />
+    <Property Name="EmployeeTrainingRecord_Course" Type="int" Nullable="false" />
+    <Property Name="EmployeeTrainingRecord_Employee" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="JobRoleCourseAssignment">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="DateAssigned" Type="datetime" Nullable="false" />
+    <Property Name="TargetCompletionDate" Type="datetime" Nullable="false" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="255" />
+    <Property Name="Created" Type="datetimeoffset" />
+    <Property Name="ModifiedBy" Type="nvarchar" MaxLength="255" />
+    <Property Name="Modified" Type="datetimeoffset" />
+    <Property Name="RowVersion" Type="rowversion" Nullable="false" StoreGeneratedPattern="Computed" />
+    <Property Name="JobRoleCourseAssignment_Course" Type="int" Nullable="false" />
+    <Property Name="JobRoleCourseAssignment_JobRole" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="JobRole">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="JobRoleDescription" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="255" />
+    <Property Name="Created" Type="datetimeoffset" />
+    <Property Name="ModifiedBy" Type="nvarchar" MaxLength="255" />
+    <Property Name="Modified" Type="datetimeoffset" />
+    <Property Name="RowVersion" Type="rowversion" Nullable="false" StoreGeneratedPattern="Computed" />
+  </EntityType>
+  <EntityType Name="TrainingSessionAttendee">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="255" />
+    <Property Name="Created" Type="datetimeoffset" />
+    <Property Name="ModifiedBy" Type="nvarchar" MaxLength="255" />
+    <Property Name="Modified" Type="datetimeoffset" />
+    <Property Name="RowVersion" Type="rowversion" Nullable="false" StoreGeneratedPattern="Computed" />
+    <Property Name="TrainingSessionAttendee_Employee" Type="int" Nullable="false" />
+    <Property Name="TrainingSessionAttendee_TrainingSession" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TrainingSession">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="StartDate" Type="datetime" Nullable="false" />
+    <Property Name="EndDate" Type="datetime" Nullable="false" />
+    <Property Name="MaximumAttendees" Type="int" Nullable="false" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="255" />
+    <Property Name="Created" Type="datetimeoffset" />
+    <Property Name="ModifiedBy" Type="nvarchar" MaxLength="255" />
+    <Property Name="Modified" Type="datetimeoffset" />
+    <Property Name="RowVersion" Type="rowversion" Nullable="false" StoreGeneratedPattern="Computed" />
+    <Property Name="TrainingSession_Course" Type="int" Nullable="false" />
+    <Property Name="TrainingSession_Employee" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="EmployeeGroupCourseAssignment_Course">
+    <End Role="Course" Type="ApplicationDataStore.Course" Multiplicity="1">
+      <OnDeleteAnnotation Action="Restrict" xmlns="http://schemas.microsoft.com/LightSwitch/2013/edm/annotations" />
+    </End>
+    <End Role="EmployeeGroupCourseAssignment" Type="ApplicationDataStore.EmployeeGroupCourseAssignment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Course">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="EmployeeGroupCourseAssignment">
+        <PropertyRef Name="EmployeeGroupCourseAssignment_Course" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="EmployeeCourseAssignment_Course">
+    <End Role="Course" Type="ApplicationDataStore.Course" Multiplicity="1">
+      <OnDeleteAnnotation Action="Restrict" xmlns="http://schemas.microsoft.com/LightSwitch/2013/edm/annotations" />
+    </End>
+    <End Role="EmployeeCourseAssignment" Type="ApplicationDataStore.EmployeeCourseAssignment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Course">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="EmployeeCourseAssignment">
+        <PropertyRef Name="EmployeeCourseAssignment_Course" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="JobRoleCourseAssignment_Course">
+    <End Role="Course" Type="ApplicationDataStore.Course" Multiplicity="1">
+      <OnDeleteAnnotation Action="Restrict" xmlns="http://schemas.microsoft.com/LightSwitch/2013/edm/annotations" />
+    </End>
+    <End Role="JobRoleCourseAssignment" Type="ApplicationDataStore.JobRoleCourseAssignment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Course">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="JobRoleCourseAssignment">
+        <PropertyRef Name="JobRoleCourseAssignment_Course" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="EmployeeTrainingRecord_Course">
+    <End Role="Course" Type="ApplicationDataStore.Course" Multiplicity="1">
+      <OnDeleteAnnotation Action="Restrict" xmlns="http://schemas.microsoft.com/LightSwitch/2013/edm/annotations" />
+    </End>
+    <End Role="EmployeeTrainingRecord" Type="ApplicationDataStore.EmployeeTrainingRecord" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Course">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="EmployeeTrainingRecord">
+        <PropertyRef Name="EmployeeTrainingRecord_Course" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="TrainingSession_Course">
+    <End Role="Course" Type="ApplicationDataStore.Course" Multiplicity="1">
+      <OnDeleteAnnotation Action="Restrict" xmlns="http://schemas.microsoft.com/LightSwitch/2013/edm/annotations" />
+    </End>
+    <End Role="TrainingSession" Type="ApplicationDataStore.TrainingSession" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Course">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TrainingSession">
+        <PropertyRef Name="TrainingSession_Course" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CourseStatus_Course">
+    <End Role="CourseStatus" Type="ApplicationDataStore.CourseStatus" Multiplicity="1">
+      <OnDeleteAnnotation Action="Restrict" xmlns="http://schemas.microsoft.com/LightSwitch/2013/edm/annotations" />
+    </End>
+    <End Role="Course" Type="ApplicationDataStore.Course" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CourseStatus">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Course">
+        <PropertyRef Name="CourseStatus_Course" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="EmployeeGroup_Employee">
+    <End Role="EmployeeGroup" Type="ApplicationDataStore.EmployeeGroup" Multiplicity="1">
+      <OnDeleteAnnotation Action="Restrict" xmlns="http://schemas.microsoft.com/LightSwitch/2013/edm/annotations" />
+    </End>
+    <End Role="Employee" Type="ApplicationDataStore.Employee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EmployeeGroup">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Employee">
+        <PropertyRef Name="EmployeeGroup_Employee" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="EmployeeGroupCourseAssignment_EmployeeGroup">
+    <End Role="EmployeeGroup" Type="ApplicationDataStore.EmployeeGroup" Multiplicity="1">
+      <OnDeleteAnnotation Action="Restrict" xmlns="http://schemas.microsoft.com/LightSwitch/2013/edm/annotations" />
+    </End>
+    <End Role="EmployeeGroupCourseAssignment" Type="ApplicationDataStore.EmployeeGroupCourseAssignment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EmployeeGroup">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="EmployeeGroupCourseAssignment">
+        <PropertyRef Name="EmployeeGroupCourseAssignment_EmployeeGroup" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="EmployeeCourseAssignment_Employee">
+    <End Role="Employee" Type="ApplicationDataStore.Employee" Multiplicity="1">
+      <OnDeleteAnnotation Action="Restrict" xmlns="http://schemas.microsoft.com/LightSwitch/2013/edm/annotations" />
+    </End>
+    <End Role="EmployeeCourseAssignment" Type="ApplicationDataStore.EmployeeCourseAssignment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="EmployeeCourseAssignment">
+        <PropertyRef Name="EmployeeCourseAssignment_Employee" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="EmployeeJobRole_Employee">
+    <End Role="Employee" Type="ApplicationDataStore.Employee" Multiplicity="1">
+      <OnDeleteAnnotation Action="Restrict" xmlns="http://schemas.microsoft.com/LightSwitch/2013/edm/annotations" />
+    </End>
+    <End Role="EmployeeJobRole" Type="ApplicationDataStore.EmployeeJobRole" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="EmployeeJobRole">
+        <PropertyRef Name="EmployeeJobRole_Employee" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="EmployeeTrainingRecord_Employee">
+    <End Role="Employee" Type="ApplicationDataStore.Employee" Multiplicity="1">
+      <OnDeleteAnnotation Action="Restrict" xmlns="http://schemas.microsoft.com/LightSwitch/2013/edm/annotations" />
+    </End>
+    <End Role="EmployeeTrainingRecord" Type="ApplicationDataStore.EmployeeTrainingRecord" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="EmployeeTrainingRecord">
+        <PropertyRef Name="EmployeeTrainingRecord_Employee" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="TrainingSession_Employee">
+    <End Role="Employee" Type="ApplicationDataStore.Employee" Multiplicity="1">
+      <OnDeleteAnnotation Action="Restrict" xmlns="http://schemas.microsoft.com/LightSwitch/2013/edm/annotations" />
+    </End>
+    <End Role="TrainingSession" Type="ApplicationDataStore.TrainingSession" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TrainingSession">
+        <PropertyRef Name="TrainingSession_Employee" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="TrainingSessionAttendee_Employee">
+    <End Role="Employee" Type="ApplicationDataStore.Employee" Multiplicity="1">
+      <OnDeleteAnnotation Action="Restrict" xmlns="http://schemas.microsoft.com/LightSwitch/2013/edm/annotations" />
+    </End>
+    <End Role="TrainingSessionAttendee" Type="ApplicationDataStore.TrainingSessionAttendee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TrainingSessionAttendee">
+        <PropertyRef Name="TrainingSessionAttendee_Employee" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="EmployeeJobRole_JobRole">
+    <End Role="JobRole" Type="ApplicationDataStore.JobRole" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="EmployeeJobRole" Type="ApplicationDataStore.EmployeeJobRole" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="JobRole">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="EmployeeJobRole">
+        <PropertyRef Name="EmployeeJobRole_JobRole" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="JobRoleCourseAssignment_JobRole">
+    <End Role="JobRole" Type="ApplicationDataStore.JobRole" Multiplicity="1">
+      <OnDeleteAnnotation Action="Restrict" xmlns="http://schemas.microsoft.com/LightSwitch/2013/edm/annotations" />
+    </End>
+    <End Role="JobRoleCourseAssignment" Type="ApplicationDataStore.JobRoleCourseAssignment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="JobRole">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="JobRoleCourseAssignment">
+        <PropertyRef Name="JobRoleCourseAssignment_JobRole" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="TrainingSessionAttendee_TrainingSession">
+    <End Role="TrainingSession" Type="ApplicationDataStore.TrainingSession" Multiplicity="1">
+      <OnDeleteAnnotation Action="Restrict" xmlns="http://schemas.microsoft.com/LightSwitch/2013/edm/annotations" />
+    </End>
+    <End Role="TrainingSessionAttendee" Type="ApplicationDataStore.TrainingSessionAttendee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TrainingSession">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TrainingSessionAttendee">
+        <PropertyRef Name="TrainingSessionAttendee_TrainingSession" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

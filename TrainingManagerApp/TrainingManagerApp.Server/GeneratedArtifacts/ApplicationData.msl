@@ -1,0 +1,190 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping CdmEntityContainer="ApplicationData" StorageEntityContainer="ApplicationDataStore">
+    <EntitySetMapping Name="Courses">
+      <EntityTypeMapping TypeName="IsTypeOf(LightSwitchApplication.Course)">
+        <MappingFragment StoreEntitySet="Courses">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CourseReference" ColumnName="CourseReference" />
+          <ScalarProperty Name="CourseTitle" ColumnName="CourseTitle" />
+          <ScalarProperty Name="CourseDescription" ColumnName="CourseDescription" />
+          <ScalarProperty Name="CourseVersion" ColumnName="CourseVersion" />
+          <ScalarProperty Name="CourseStatus_Course" ColumnName="CourseStatus_Course" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="Modified" ColumnName="Modified" />
+          <ScalarProperty Name="RowVersion" ColumnName="RowVersion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CourseStatuses">
+      <EntityTypeMapping TypeName="IsTypeOf(LightSwitchApplication.CourseStatus)">
+        <MappingFragment StoreEntitySet="CourseStatuses">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="Modified" ColumnName="Modified" />
+          <ScalarProperty Name="RowVersion" ColumnName="RowVersion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EmployeeCourseAssignments">
+      <EntityTypeMapping TypeName="IsTypeOf(LightSwitchApplication.EmployeeCourseAssignment)">
+        <MappingFragment StoreEntitySet="EmployeeCourseAssignments">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="EmployeeCourseAssignment_Course" ColumnName="EmployeeCourseAssignment_Course" />
+          <ScalarProperty Name="EmployeeCourseAssignment_Employee" ColumnName="EmployeeCourseAssignment_Employee" />
+          <ScalarProperty Name="DateAssigned" ColumnName="DateAssigned" />
+          <ScalarProperty Name="TargetCompletionDate" ColumnName="TargetCompletionDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="Modified" ColumnName="Modified" />
+          <ScalarProperty Name="RowVersion" ColumnName="RowVersion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EmployeeGroupCourseAssignments">
+      <EntityTypeMapping TypeName="IsTypeOf(LightSwitchApplication.EmployeeGroupCourseAssignment)">
+        <MappingFragment StoreEntitySet="EmployeeGroupCourseAssignments">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="EmployeeGroupCourseAssignment_EmployeeGroup" ColumnName="EmployeeGroupCourseAssignment_EmployeeGroup" />
+          <ScalarProperty Name="EmployeeGroupCourseAssignment_Course" ColumnName="EmployeeGroupCourseAssignment_Course" />
+          <ScalarProperty Name="DateAssigned" ColumnName="DateAssigned" />
+          <ScalarProperty Name="TargetCompletionDate" ColumnName="TargetCompletionDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="Modified" ColumnName="Modified" />
+          <ScalarProperty Name="RowVersion" ColumnName="RowVersion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EmployeeGroups">
+      <EntityTypeMapping TypeName="IsTypeOf(LightSwitchApplication.EmployeeGroup)">
+        <MappingFragment StoreEntitySet="EmployeeGroups">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="EmployeeGroupName" ColumnName="EmployeeGroupName" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="Modified" ColumnName="Modified" />
+          <ScalarProperty Name="RowVersion" ColumnName="RowVersion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EmployeeJobRoles">
+      <EntityTypeMapping TypeName="IsTypeOf(LightSwitchApplication.EmployeeJobRole)">
+        <MappingFragment StoreEntitySet="EmployeeJobRoles">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="EmployeeJobRole_Employee" ColumnName="EmployeeJobRole_Employee" />
+          <ScalarProperty Name="EmployeeJobRole_JobRole" ColumnName="EmployeeJobRole_JobRole" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="Modified" ColumnName="Modified" />
+          <ScalarProperty Name="RowVersion" ColumnName="RowVersion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Employees">
+      <EntityTypeMapping TypeName="IsTypeOf(LightSwitchApplication.Employee)">
+        <MappingFragment StoreEntitySet="Employees">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Current" ColumnName="Current" />
+          <ScalarProperty Name="EmployeeGroup_Employee" ColumnName="EmployeeGroup_Employee" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="Modified" ColumnName="Modified" />
+          <ScalarProperty Name="RowVersion" ColumnName="RowVersion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EmployeeTrainingRecords">
+      <EntityTypeMapping TypeName="IsTypeOf(LightSwitchApplication.EmployeeTrainingRecord)">
+        <MappingFragment StoreEntitySet="EmployeeTrainingRecords">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="EmployeeTrainingRecord_Employee" ColumnName="EmployeeTrainingRecord_Employee" />
+          <ScalarProperty Name="DateAssigned" ColumnName="DateAssigned" />
+          <ScalarProperty Name="TargetCompletionDate" ColumnName="TargetCompletionDate" />
+          <ScalarProperty Name="DateTrainingCommenced" ColumnName="DateTrainingCommenced" />
+          <ScalarProperty Name="DateTrainingCompleted" ColumnName="DateTrainingCompleted" />
+          <ScalarProperty Name="EmployeeTrainingRecord_Course" ColumnName="EmployeeTrainingRecord_Course" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="Modified" ColumnName="Modified" />
+          <ScalarProperty Name="RowVersion" ColumnName="RowVersion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="JobRoleCourseAssignments">
+      <EntityTypeMapping TypeName="IsTypeOf(LightSwitchApplication.JobRoleCourseAssignment)">
+        <MappingFragment StoreEntitySet="JobRoleCourseAssignments">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="JobRoleCourseAssignment_JobRole" ColumnName="JobRoleCourseAssignment_JobRole" />
+          <ScalarProperty Name="JobRoleCourseAssignment_Course" ColumnName="JobRoleCourseAssignment_Course" />
+          <ScalarProperty Name="DateAssigned" ColumnName="DateAssigned" />
+          <ScalarProperty Name="TargetCompletionDate" ColumnName="TargetCompletionDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="Modified" ColumnName="Modified" />
+          <ScalarProperty Name="RowVersion" ColumnName="RowVersion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="JobRoles">
+      <EntityTypeMapping TypeName="IsTypeOf(LightSwitchApplication.JobRole)">
+        <MappingFragment StoreEntitySet="JobRoles">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="JobRoleDescription" ColumnName="JobRoleDescription" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="Modified" ColumnName="Modified" />
+          <ScalarProperty Name="RowVersion" ColumnName="RowVersion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TrainingSessionAttendees">
+      <EntityTypeMapping TypeName="IsTypeOf(LightSwitchApplication.TrainingSessionAttendee)">
+        <MappingFragment StoreEntitySet="TrainingSessionAttendees">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="TrainingSessionAttendee_Employee" ColumnName="TrainingSessionAttendee_Employee" />
+          <ScalarProperty Name="TrainingSessionAttendee_TrainingSession" ColumnName="TrainingSessionAttendee_TrainingSession" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="Modified" ColumnName="Modified" />
+          <ScalarProperty Name="RowVersion" ColumnName="RowVersion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TrainingSessions">
+      <EntityTypeMapping TypeName="IsTypeOf(LightSwitchApplication.TrainingSession)">
+        <MappingFragment StoreEntitySet="TrainingSessions">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+          <ScalarProperty Name="MaximumAttendees" ColumnName="MaximumAttendees" />
+          <ScalarProperty Name="TrainingSession_Employee" ColumnName="TrainingSession_Employee" />
+          <ScalarProperty Name="TrainingSession_Course" ColumnName="TrainingSession_Course" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="Modified" ColumnName="Modified" />
+          <ScalarProperty Name="RowVersion" ColumnName="RowVersion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

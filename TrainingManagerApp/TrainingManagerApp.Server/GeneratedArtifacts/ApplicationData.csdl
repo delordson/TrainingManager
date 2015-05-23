@@ -1,0 +1,480 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" Namespace="LightSwitchApplication" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityType Name="Course">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Edm.Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CourseReference" Type="Edm.String" Nullable="false" MaxLength="50" />
+    <Property Name="CourseTitle" Type="Edm.String" Nullable="false" MaxLength="255" />
+    <Property Name="CourseDescription" Type="Edm.String" MaxLength="Max" />
+    <Property Name="CourseVersion" Type="Edm.Int32" />
+    <Property Name="CourseStatus_Course" Type="Edm.Int32" Nullable="false" />
+    <Property Name="CreatedBy" Type="Edm.String" MaxLength="255" />
+    <Property Name="Created" Type="Edm.DateTimeOffset" />
+    <Property Name="ModifiedBy" Type="Edm.String" MaxLength="255" />
+    <Property Name="Modified" Type="Edm.DateTimeOffset" />
+    <Property Name="RowVersion" Type="Edm.Binary" Nullable="false" ConcurrencyMode="Fixed" annotation:StoreGeneratedPattern="Computed" />
+    <NavigationProperty Name="CourseStatus" Relationship="LightSwitchApplication.CourseStatus_Course" ToRole="CourseStatus" FromRole="Course" />
+    <NavigationProperty Name="EmployeeGroupCourseAssignments" Relationship="LightSwitchApplication.EmployeeGroupCourseAssignment_Course" ToRole="EmployeeGroupCourseAssignment" FromRole="Course" />
+    <NavigationProperty Name="EmployeeCourseAssignments" Relationship="LightSwitchApplication.EmployeeCourseAssignment_Course" ToRole="EmployeeCourseAssignment" FromRole="Course" />
+    <NavigationProperty Name="JobRoleCourseAssignments" Relationship="LightSwitchApplication.JobRoleCourseAssignment_Course" ToRole="JobRoleCourseAssignment" FromRole="Course" />
+    <NavigationProperty Name="EmployeeTrainingRecords" Relationship="LightSwitchApplication.EmployeeTrainingRecord_Course" ToRole="EmployeeTrainingRecord" FromRole="Course" />
+    <NavigationProperty Name="TrainingSessions" Relationship="LightSwitchApplication.TrainingSession_Course" ToRole="TrainingSession" FromRole="Course" />
+  </EntityType>
+  <EntityType Name="CourseStatus">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Edm.Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Status" Type="Edm.String" Nullable="false" MaxLength="100" />
+    <Property Name="CreatedBy" Type="Edm.String" MaxLength="255" />
+    <Property Name="Created" Type="Edm.DateTimeOffset" />
+    <Property Name="ModifiedBy" Type="Edm.String" MaxLength="255" />
+    <Property Name="Modified" Type="Edm.DateTimeOffset" />
+    <Property Name="RowVersion" Type="Edm.Binary" Nullable="false" ConcurrencyMode="Fixed" annotation:StoreGeneratedPattern="Computed" />
+    <NavigationProperty Name="Courses" Relationship="LightSwitchApplication.CourseStatus_Course" ToRole="Course" FromRole="CourseStatus" />
+  </EntityType>
+  <EntityType Name="EmployeeCourseAssignment">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Edm.Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EmployeeCourseAssignment_Course" Type="Edm.Int32" Nullable="false" />
+    <Property Name="EmployeeCourseAssignment_Employee" Type="Edm.Int32" Nullable="false" />
+    <Property Name="DateAssigned" Type="Edm.DateTime" Nullable="false" />
+    <Property Name="TargetCompletionDate" Type="Edm.DateTime" Nullable="false" />
+    <Property Name="CreatedBy" Type="Edm.String" MaxLength="255" />
+    <Property Name="Created" Type="Edm.DateTimeOffset" />
+    <Property Name="ModifiedBy" Type="Edm.String" MaxLength="255" />
+    <Property Name="Modified" Type="Edm.DateTimeOffset" />
+    <Property Name="RowVersion" Type="Edm.Binary" Nullable="false" ConcurrencyMode="Fixed" annotation:StoreGeneratedPattern="Computed" />
+    <NavigationProperty Name="Course" Relationship="LightSwitchApplication.EmployeeCourseAssignment_Course" ToRole="Course" FromRole="EmployeeCourseAssignment" />
+    <NavigationProperty Name="Employee" Relationship="LightSwitchApplication.EmployeeCourseAssignment_Employee" ToRole="Employee" FromRole="EmployeeCourseAssignment" />
+  </EntityType>
+  <EntityType Name="EmployeeGroupCourseAssignment">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Edm.Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EmployeeGroupCourseAssignment_EmployeeGroup" Type="Edm.Int32" Nullable="false" />
+    <Property Name="EmployeeGroupCourseAssignment_Course" Type="Edm.Int32" Nullable="false" />
+    <Property Name="DateAssigned" Type="Edm.DateTime" Nullable="false" />
+    <Property Name="TargetCompletionDate" Type="Edm.DateTime" Nullable="false" />
+    <Property Name="CreatedBy" Type="Edm.String" MaxLength="255" />
+    <Property Name="Created" Type="Edm.DateTimeOffset" />
+    <Property Name="ModifiedBy" Type="Edm.String" MaxLength="255" />
+    <Property Name="Modified" Type="Edm.DateTimeOffset" />
+    <Property Name="RowVersion" Type="Edm.Binary" Nullable="false" ConcurrencyMode="Fixed" annotation:StoreGeneratedPattern="Computed" />
+    <NavigationProperty Name="EmployeeGroup" Relationship="LightSwitchApplication.EmployeeGroupCourseAssignment_EmployeeGroup" ToRole="EmployeeGroup" FromRole="EmployeeGroupCourseAssignment" />
+    <NavigationProperty Name="Course" Relationship="LightSwitchApplication.EmployeeGroupCourseAssignment_Course" ToRole="Course" FromRole="EmployeeGroupCourseAssignment" />
+  </EntityType>
+  <EntityType Name="EmployeeGroup">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Edm.Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EmployeeGroupName" Type="Edm.String" Nullable="false" MaxLength="255" />
+    <Property Name="CreatedBy" Type="Edm.String" MaxLength="255" />
+    <Property Name="Created" Type="Edm.DateTimeOffset" />
+    <Property Name="ModifiedBy" Type="Edm.String" MaxLength="255" />
+    <Property Name="Modified" Type="Edm.DateTimeOffset" />
+    <Property Name="RowVersion" Type="Edm.Binary" Nullable="false" ConcurrencyMode="Fixed" annotation:StoreGeneratedPattern="Computed" />
+    <NavigationProperty Name="Employees" Relationship="LightSwitchApplication.EmployeeGroup_Employee" ToRole="Employee" FromRole="EmployeeGroup" />
+    <NavigationProperty Name="EmployeeGroupCourseAssignments" Relationship="LightSwitchApplication.EmployeeGroupCourseAssignment_EmployeeGroup" ToRole="EmployeeGroupCourseAssignment" FromRole="EmployeeGroup" />
+  </EntityType>
+  <EntityType Name="EmployeeJobRole">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Edm.Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EmployeeJobRole_Employee" Type="Edm.Int32" Nullable="false" />
+    <Property Name="EmployeeJobRole_JobRole" Type="Edm.Int32" Nullable="false" />
+    <Property Name="CreatedBy" Type="Edm.String" MaxLength="255" />
+    <Property Name="Created" Type="Edm.DateTimeOffset" />
+    <Property Name="ModifiedBy" Type="Edm.String" MaxLength="255" />
+    <Property Name="Modified" Type="Edm.DateTimeOffset" />
+    <Property Name="RowVersion" Type="Edm.Binary" Nullable="false" ConcurrencyMode="Fixed" annotation:StoreGeneratedPattern="Computed" />
+    <NavigationProperty Name="Employee" Relationship="LightSwitchApplication.EmployeeJobRole_Employee" ToRole="Employee" FromRole="EmployeeJobRole" />
+    <NavigationProperty Name="JobRole" Relationship="LightSwitchApplication.EmployeeJobRole_JobRole" ToRole="JobRole" FromRole="EmployeeJobRole" />
+  </EntityType>
+  <EntityType Name="Employee">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Edm.Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LastName" Type="Edm.String" Nullable="false" MaxLength="75" />
+    <Property Name="FirstName" Type="Edm.String" Nullable="false" MaxLength="75" />
+    <Property Name="UserName" Type="Edm.String" Nullable="false" MaxLength="75" />
+    <Property Name="Email" Type="Edm.String" Nullable="false" MaxLength="255" />
+    <Property Name="Current" Type="Edm.Boolean" Nullable="false" />
+    <Property Name="EmployeeGroup_Employee" Type="Edm.Int32" Nullable="false" />
+    <Property Name="CreatedBy" Type="Edm.String" MaxLength="255" />
+    <Property Name="Created" Type="Edm.DateTimeOffset" />
+    <Property Name="ModifiedBy" Type="Edm.String" MaxLength="255" />
+    <Property Name="Modified" Type="Edm.DateTimeOffset" />
+    <Property Name="RowVersion" Type="Edm.Binary" Nullable="false" ConcurrencyMode="Fixed" annotation:StoreGeneratedPattern="Computed" />
+    <NavigationProperty Name="EmployeeGroup" Relationship="LightSwitchApplication.EmployeeGroup_Employee" ToRole="EmployeeGroup" FromRole="Employee" />
+    <NavigationProperty Name="EmployeeCourseAssignments" Relationship="LightSwitchApplication.EmployeeCourseAssignment_Employee" ToRole="EmployeeCourseAssignment" FromRole="Employee" />
+    <NavigationProperty Name="EmployeeJobRoles" Relationship="LightSwitchApplication.EmployeeJobRole_Employee" ToRole="EmployeeJobRole" FromRole="Employee" />
+    <NavigationProperty Name="EmployeeTrainingRecords" Relationship="LightSwitchApplication.EmployeeTrainingRecord_Employee" ToRole="EmployeeTrainingRecord" FromRole="Employee" />
+    <NavigationProperty Name="TrainingSessions" Relationship="LightSwitchApplication.TrainingSession_Employee" ToRole="TrainingSession" FromRole="Employee" />
+    <NavigationProperty Name="TrainingSessionAttendees" Relationship="LightSwitchApplication.TrainingSessionAttendee_Employee" ToRole="TrainingSessionAttendee" FromRole="Employee" />
+  </EntityType>
+  <EntityType Name="EmployeeTrainingRecord">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Edm.Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EmployeeTrainingRecord_Employee" Type="Edm.Int32" Nullable="false" />
+    <Property Name="DateAssigned" Type="Edm.DateTime" Nullable="false" />
+    <Property Name="TargetCompletionDate" Type="Edm.DateTime" Nullable="false" />
+    <Property Name="DateTrainingCommenced" Type="Edm.DateTime" />
+    <Property Name="DateTrainingCompleted" Type="Edm.DateTime" />
+    <Property Name="EmployeeTrainingRecord_Course" Type="Edm.Int32" Nullable="false" />
+    <Property Name="CreatedBy" Type="Edm.String" MaxLength="255" />
+    <Property Name="Created" Type="Edm.DateTimeOffset" />
+    <Property Name="ModifiedBy" Type="Edm.String" MaxLength="255" />
+    <Property Name="Modified" Type="Edm.DateTimeOffset" />
+    <Property Name="RowVersion" Type="Edm.Binary" Nullable="false" ConcurrencyMode="Fixed" annotation:StoreGeneratedPattern="Computed" />
+    <NavigationProperty Name="Employee" Relationship="LightSwitchApplication.EmployeeTrainingRecord_Employee" ToRole="Employee" FromRole="EmployeeTrainingRecord" />
+    <NavigationProperty Name="Course" Relationship="LightSwitchApplication.EmployeeTrainingRecord_Course" ToRole="Course" FromRole="EmployeeTrainingRecord" />
+  </EntityType>
+  <EntityType Name="JobRoleCourseAssignment">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Edm.Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="JobRoleCourseAssignment_JobRole" Type="Edm.Int32" Nullable="false" />
+    <Property Name="JobRoleCourseAssignment_Course" Type="Edm.Int32" Nullable="false" />
+    <Property Name="DateAssigned" Type="Edm.DateTime" Nullable="false" />
+    <Property Name="TargetCompletionDate" Type="Edm.DateTime" Nullable="false" />
+    <Property Name="CreatedBy" Type="Edm.String" MaxLength="255" />
+    <Property Name="Created" Type="Edm.DateTimeOffset" />
+    <Property Name="ModifiedBy" Type="Edm.String" MaxLength="255" />
+    <Property Name="Modified" Type="Edm.DateTimeOffset" />
+    <Property Name="RowVersion" Type="Edm.Binary" Nullable="false" ConcurrencyMode="Fixed" annotation:StoreGeneratedPattern="Computed" />
+    <NavigationProperty Name="JobRole" Relationship="LightSwitchApplication.JobRoleCourseAssignment_JobRole" ToRole="JobRole" FromRole="JobRoleCourseAssignment" />
+    <NavigationProperty Name="Course" Relationship="LightSwitchApplication.JobRoleCourseAssignment_Course" ToRole="Course" FromRole="JobRoleCourseAssignment" />
+  </EntityType>
+  <EntityType Name="JobRole">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Edm.Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="JobRoleDescription" Type="Edm.String" Nullable="false" MaxLength="255" />
+    <Property Name="CreatedBy" Type="Edm.String" MaxLength="255" />
+    <Property Name="Created" Type="Edm.DateTimeOffset" />
+    <Property Name="ModifiedBy" Type="Edm.String" MaxLength="255" />
+    <Property Name="Modified" Type="Edm.DateTimeOffset" />
+    <Property Name="RowVersion" Type="Edm.Binary" Nullable="false" ConcurrencyMode="Fixed" annotation:StoreGeneratedPattern="Computed" />
+    <NavigationProperty Name="EmployeeJobRoles" Relationship="LightSwitchApplication.EmployeeJobRole_JobRole" ToRole="EmployeeJobRole" FromRole="JobRole" />
+    <NavigationProperty Name="JobRoleCourseAssignments" Relationship="LightSwitchApplication.JobRoleCourseAssignment_JobRole" ToRole="JobRoleCourseAssignment" FromRole="JobRole" />
+  </EntityType>
+  <EntityType Name="TrainingSessionAttendee">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Edm.Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TrainingSessionAttendee_Employee" Type="Edm.Int32" Nullable="false" />
+    <Property Name="TrainingSessionAttendee_TrainingSession" Type="Edm.Int32" Nullable="false" />
+    <Property Name="CreatedBy" Type="Edm.String" MaxLength="255" />
+    <Property Name="Created" Type="Edm.DateTimeOffset" />
+    <Property Name="ModifiedBy" Type="Edm.String" MaxLength="255" />
+    <Property Name="Modified" Type="Edm.DateTimeOffset" />
+    <Property Name="RowVersion" Type="Edm.Binary" Nullable="false" ConcurrencyMode="Fixed" annotation:StoreGeneratedPattern="Computed" />
+    <NavigationProperty Name="Employee" Relationship="LightSwitchApplication.TrainingSessionAttendee_Employee" ToRole="Employee" FromRole="TrainingSessionAttendee" />
+    <NavigationProperty Name="TrainingSession" Relationship="LightSwitchApplication.TrainingSessionAttendee_TrainingSession" ToRole="TrainingSession" FromRole="TrainingSessionAttendee" />
+  </EntityType>
+  <EntityType Name="TrainingSession">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Edm.Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="StartDate" Type="Edm.DateTime" Nullable="false" />
+    <Property Name="EndDate" Type="Edm.DateTime" Nullable="false" />
+    <Property Name="MaximumAttendees" Type="Edm.Int32" Nullable="false" />
+    <Property Name="TrainingSession_Employee" Type="Edm.Int32" Nullable="false" />
+    <Property Name="TrainingSession_Course" Type="Edm.Int32" Nullable="false" />
+    <Property Name="CreatedBy" Type="Edm.String" MaxLength="255" />
+    <Property Name="Created" Type="Edm.DateTimeOffset" />
+    <Property Name="ModifiedBy" Type="Edm.String" MaxLength="255" />
+    <Property Name="Modified" Type="Edm.DateTimeOffset" />
+    <Property Name="RowVersion" Type="Edm.Binary" Nullable="false" ConcurrencyMode="Fixed" annotation:StoreGeneratedPattern="Computed" />
+    <NavigationProperty Name="Employee" Relationship="LightSwitchApplication.TrainingSession_Employee" ToRole="Employee" FromRole="TrainingSession" />
+    <NavigationProperty Name="Course" Relationship="LightSwitchApplication.TrainingSession_Course" ToRole="Course" FromRole="TrainingSession" />
+    <NavigationProperty Name="TrainingSessionAttendees" Relationship="LightSwitchApplication.TrainingSessionAttendee_TrainingSession" ToRole="TrainingSessionAttendee" FromRole="TrainingSession" />
+  </EntityType>
+  <Association Name="EmployeeGroupCourseAssignment_Course">
+    <End Role="Course" Type="LightSwitchApplication.Course" Multiplicity="1" />
+    <End Role="EmployeeGroupCourseAssignment" Type="LightSwitchApplication.EmployeeGroupCourseAssignment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Course">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="EmployeeGroupCourseAssignment">
+        <PropertyRef Name="EmployeeGroupCourseAssignment_Course" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="EmployeeCourseAssignment_Course">
+    <End Role="Course" Type="LightSwitchApplication.Course" Multiplicity="1" />
+    <End Role="EmployeeCourseAssignment" Type="LightSwitchApplication.EmployeeCourseAssignment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Course">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="EmployeeCourseAssignment">
+        <PropertyRef Name="EmployeeCourseAssignment_Course" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="JobRoleCourseAssignment_Course">
+    <End Role="Course" Type="LightSwitchApplication.Course" Multiplicity="1" />
+    <End Role="JobRoleCourseAssignment" Type="LightSwitchApplication.JobRoleCourseAssignment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Course">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="JobRoleCourseAssignment">
+        <PropertyRef Name="JobRoleCourseAssignment_Course" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="EmployeeTrainingRecord_Course">
+    <End Role="Course" Type="LightSwitchApplication.Course" Multiplicity="1" />
+    <End Role="EmployeeTrainingRecord" Type="LightSwitchApplication.EmployeeTrainingRecord" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Course">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="EmployeeTrainingRecord">
+        <PropertyRef Name="EmployeeTrainingRecord_Course" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="TrainingSession_Course">
+    <End Role="Course" Type="LightSwitchApplication.Course" Multiplicity="1" />
+    <End Role="TrainingSession" Type="LightSwitchApplication.TrainingSession" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Course">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TrainingSession">
+        <PropertyRef Name="TrainingSession_Course" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CourseStatus_Course">
+    <End Role="CourseStatus" Type="LightSwitchApplication.CourseStatus" Multiplicity="1" />
+    <End Role="Course" Type="LightSwitchApplication.Course" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CourseStatus">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Course">
+        <PropertyRef Name="CourseStatus_Course" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="EmployeeGroup_Employee">
+    <End Role="EmployeeGroup" Type="LightSwitchApplication.EmployeeGroup" Multiplicity="1" />
+    <End Role="Employee" Type="LightSwitchApplication.Employee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EmployeeGroup">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Employee">
+        <PropertyRef Name="EmployeeGroup_Employee" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="EmployeeGroupCourseAssignment_EmployeeGroup">
+    <End Role="EmployeeGroup" Type="LightSwitchApplication.EmployeeGroup" Multiplicity="1" />
+    <End Role="EmployeeGroupCourseAssignment" Type="LightSwitchApplication.EmployeeGroupCourseAssignment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EmployeeGroup">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="EmployeeGroupCourseAssignment">
+        <PropertyRef Name="EmployeeGroupCourseAssignment_EmployeeGroup" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="EmployeeCourseAssignment_Employee">
+    <End Role="Employee" Type="LightSwitchApplication.Employee" Multiplicity="1" />
+    <End Role="EmployeeCourseAssignment" Type="LightSwitchApplication.EmployeeCourseAssignment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="EmployeeCourseAssignment">
+        <PropertyRef Name="EmployeeCourseAssignment_Employee" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="EmployeeJobRole_Employee">
+    <End Role="Employee" Type="LightSwitchApplication.Employee" Multiplicity="1" />
+    <End Role="EmployeeJobRole" Type="LightSwitchApplication.EmployeeJobRole" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="EmployeeJobRole">
+        <PropertyRef Name="EmployeeJobRole_Employee" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="EmployeeTrainingRecord_Employee">
+    <End Role="Employee" Type="LightSwitchApplication.Employee" Multiplicity="1" />
+    <End Role="EmployeeTrainingRecord" Type="LightSwitchApplication.EmployeeTrainingRecord" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="EmployeeTrainingRecord">
+        <PropertyRef Name="EmployeeTrainingRecord_Employee" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="TrainingSession_Employee">
+    <End Role="Employee" Type="LightSwitchApplication.Employee" Multiplicity="1" />
+    <End Role="TrainingSession" Type="LightSwitchApplication.TrainingSession" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TrainingSession">
+        <PropertyRef Name="TrainingSession_Employee" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="TrainingSessionAttendee_Employee">
+    <End Role="Employee" Type="LightSwitchApplication.Employee" Multiplicity="1" />
+    <End Role="TrainingSessionAttendee" Type="LightSwitchApplication.TrainingSessionAttendee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TrainingSessionAttendee">
+        <PropertyRef Name="TrainingSessionAttendee_Employee" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="EmployeeJobRole_JobRole">
+    <End Role="JobRole" Type="LightSwitchApplication.JobRole" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="EmployeeJobRole" Type="LightSwitchApplication.EmployeeJobRole" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="JobRole">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="EmployeeJobRole">
+        <PropertyRef Name="EmployeeJobRole_JobRole" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="JobRoleCourseAssignment_JobRole">
+    <End Role="JobRole" Type="LightSwitchApplication.JobRole" Multiplicity="1" />
+    <End Role="JobRoleCourseAssignment" Type="LightSwitchApplication.JobRoleCourseAssignment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="JobRole">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="JobRoleCourseAssignment">
+        <PropertyRef Name="JobRoleCourseAssignment_JobRole" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="TrainingSessionAttendee_TrainingSession">
+    <End Role="TrainingSession" Type="LightSwitchApplication.TrainingSession" Multiplicity="1" />
+    <End Role="TrainingSessionAttendee" Type="LightSwitchApplication.TrainingSessionAttendee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TrainingSession">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TrainingSessionAttendee">
+        <PropertyRef Name="TrainingSessionAttendee_TrainingSession" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ApplicationData" m:IsDefaultEntityContainer="true">
+    <EntitySet Name="Courses" EntityType="LightSwitchApplication.Course" />
+    <EntitySet Name="CourseStatuses" EntityType="LightSwitchApplication.CourseStatus" />
+    <EntitySet Name="EmployeeCourseAssignments" EntityType="LightSwitchApplication.EmployeeCourseAssignment" />
+    <EntitySet Name="EmployeeGroupCourseAssignments" EntityType="LightSwitchApplication.EmployeeGroupCourseAssignment" />
+    <EntitySet Name="EmployeeGroups" EntityType="LightSwitchApplication.EmployeeGroup" />
+    <EntitySet Name="EmployeeJobRoles" EntityType="LightSwitchApplication.EmployeeJobRole" />
+    <EntitySet Name="Employees" EntityType="LightSwitchApplication.Employee" />
+    <EntitySet Name="EmployeeTrainingRecords" EntityType="LightSwitchApplication.EmployeeTrainingRecord" />
+    <EntitySet Name="JobRoleCourseAssignments" EntityType="LightSwitchApplication.JobRoleCourseAssignment" />
+    <EntitySet Name="JobRoles" EntityType="LightSwitchApplication.JobRole" />
+    <EntitySet Name="TrainingSessionAttendees" EntityType="LightSwitchApplication.TrainingSessionAttendee" />
+    <EntitySet Name="TrainingSessions" EntityType="LightSwitchApplication.TrainingSession" />
+    <AssociationSet Name="EmployeeGroupCourseAssignment_Course" Association="LightSwitchApplication.EmployeeGroupCourseAssignment_Course">
+      <End Role="Course" EntitySet="Courses" />
+      <End Role="EmployeeGroupCourseAssignment" EntitySet="EmployeeGroupCourseAssignments" />
+    </AssociationSet>
+    <AssociationSet Name="EmployeeCourseAssignment_Course" Association="LightSwitchApplication.EmployeeCourseAssignment_Course">
+      <End Role="Course" EntitySet="Courses" />
+      <End Role="EmployeeCourseAssignment" EntitySet="EmployeeCourseAssignments" />
+    </AssociationSet>
+    <AssociationSet Name="JobRoleCourseAssignment_Course" Association="LightSwitchApplication.JobRoleCourseAssignment_Course">
+      <End Role="Course" EntitySet="Courses" />
+      <End Role="JobRoleCourseAssignment" EntitySet="JobRoleCourseAssignments" />
+    </AssociationSet>
+    <AssociationSet Name="EmployeeTrainingRecord_Course" Association="LightSwitchApplication.EmployeeTrainingRecord_Course">
+      <End Role="Course" EntitySet="Courses" />
+      <End Role="EmployeeTrainingRecord" EntitySet="EmployeeTrainingRecords" />
+    </AssociationSet>
+    <AssociationSet Name="TrainingSession_Course" Association="LightSwitchApplication.TrainingSession_Course">
+      <End Role="Course" EntitySet="Courses" />
+      <End Role="TrainingSession" EntitySet="TrainingSessions" />
+    </AssociationSet>
+    <AssociationSet Name="CourseStatus_Course" Association="LightSwitchApplication.CourseStatus_Course">
+      <End Role="CourseStatus" EntitySet="CourseStatuses" />
+      <End Role="Course" EntitySet="Courses" />
+    </AssociationSet>
+    <AssociationSet Name="EmployeeGroup_Employee" Association="LightSwitchApplication.EmployeeGroup_Employee">
+      <End Role="EmployeeGroup" EntitySet="EmployeeGroups" />
+      <End Role="Employee" EntitySet="Employees" />
+    </AssociationSet>
+    <AssociationSet Name="EmployeeGroupCourseAssignment_EmployeeGroup" Association="LightSwitchApplication.EmployeeGroupCourseAssignment_EmployeeGroup">
+      <End Role="EmployeeGroup" EntitySet="EmployeeGroups" />
+      <End Role="EmployeeGroupCourseAssignment" EntitySet="EmployeeGroupCourseAssignments" />
+    </AssociationSet>
+    <AssociationSet Name="EmployeeCourseAssignment_Employee" Association="LightSwitchApplication.EmployeeCourseAssignment_Employee">
+      <End Role="Employee" EntitySet="Employees" />
+      <End Role="EmployeeCourseAssignment" EntitySet="EmployeeCourseAssignments" />
+    </AssociationSet>
+    <AssociationSet Name="EmployeeJobRole_Employee" Association="LightSwitchApplication.EmployeeJobRole_Employee">
+      <End Role="Employee" EntitySet="Employees" />
+      <End Role="EmployeeJobRole" EntitySet="EmployeeJobRoles" />
+    </AssociationSet>
+    <AssociationSet Name="EmployeeTrainingRecord_Employee" Association="LightSwitchApplication.EmployeeTrainingRecord_Employee">
+      <End Role="Employee" EntitySet="Employees" />
+      <End Role="EmployeeTrainingRecord" EntitySet="EmployeeTrainingRecords" />
+    </AssociationSet>
+    <AssociationSet Name="TrainingSession_Employee" Association="LightSwitchApplication.TrainingSession_Employee">
+      <End Role="Employee" EntitySet="Employees" />
+      <End Role="TrainingSession" EntitySet="TrainingSessions" />
+    </AssociationSet>
+    <AssociationSet Name="TrainingSessionAttendee_Employee" Association="LightSwitchApplication.TrainingSessionAttendee_Employee">
+      <End Role="Employee" EntitySet="Employees" />
+      <End Role="TrainingSessionAttendee" EntitySet="TrainingSessionAttendees" />
+    </AssociationSet>
+    <AssociationSet Name="EmployeeJobRole_JobRole" Association="LightSwitchApplication.EmployeeJobRole_JobRole">
+      <End Role="JobRole" EntitySet="JobRoles" />
+      <End Role="EmployeeJobRole" EntitySet="EmployeeJobRoles" />
+    </AssociationSet>
+    <AssociationSet Name="JobRoleCourseAssignment_JobRole" Association="LightSwitchApplication.JobRoleCourseAssignment_JobRole">
+      <End Role="JobRole" EntitySet="JobRoles" />
+      <End Role="JobRoleCourseAssignment" EntitySet="JobRoleCourseAssignments" />
+    </AssociationSet>
+    <AssociationSet Name="TrainingSessionAttendee_TrainingSession" Association="LightSwitchApplication.TrainingSessionAttendee_TrainingSession">
+      <End Role="TrainingSession" EntitySet="TrainingSessions" />
+      <End Role="TrainingSessionAttendee" EntitySet="TrainingSessionAttendees" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

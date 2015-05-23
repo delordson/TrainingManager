@@ -1,0 +1,233 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|AnyCPU">
+      <Configuration>Debug</Configuration>
+      <Platform>AnyCPU</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|AnyCPU">
+      <Configuration>Release</Configuration>
+      <Platform>AnyCPU</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Condition=" '$(Configuration)' != 'Release' ">
+    <UseDesignTimeFeatures>true</UseDesignTimeFeatures>
+  </PropertyGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{72ef5d2f-00ee-401d-9249-5683e052094c}</ProjectGuid>
+    <LightSwitchVersion>v4.0</LightSwitchVersion>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\LightSwitch\v4.0\MobileClient\Microsoft.LightSwitch.MobileClient.Default.props" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\LightSwitch\v4.0\MobileClient\Microsoft.LightSwitch.MobileClient.props" />
+  <PropertyGroup>
+    <!--TargetPlatformIdentifier>Windows</TargetPlatformIdentifier>
+    <TargetPlatformVersion>8.0</TargetPlatformVersion-->
+    <LightSwitchProjectTypeV3>Client</LightSwitchProjectTypeV3>
+    <LightSwitchProjectSubType>JScript</LightSwitchProjectSubType>
+    <ProjectTypeGuids>{DA98106F-DEFA-4A62-8804-0BD2F166A45D};{262852c6-cd72-467d-83fe-5eeb1973a190}</ProjectTypeGuids>
+    <DefaultLanguage>en-US</DefaultLanguage>
+    <SupportedCultures>en-US</SupportedCultures>
+    <DefaultPlatform>AnyCPU</DefaultPlatform>
+    <ClientProjectName>HTMLClient</ClientProjectName>
+    <ServerProjectReference>..\TrainingManagerApp.Server\TrainingManagerApp.Server.csproj</ServerProjectReference>
+    <LightSwitchDisplayName>HTMLClient</LightSwitchDisplayName>
+  </PropertyGroup>
+  <ItemGroup>
+    <Content Include="Content\dark-theme-2.0.0.css" />
+    <Content Include="Content\Images\EmployeeGroups.png" />
+    <Content Include="Content\Images\CourseStatuses.png" />
+    <Content Include="Content\Images\ajax-loader.gif" />
+    <Content Include="Content\Images\Employees.png" />
+    <Content Include="Content\Images\MobileCourses.png" />
+    <Content Include="Content\Images\MobileCourseStatuses.png" />
+    <Content Include="Content\Images\MobileEmployeeGroups.png" />
+    <Content Include="Content\Images\MobileJobRoles.png" />
+    <Content Include="Content\Images\MobileMyCourses.png" />
+    <Content Include="Content\Images\MobileMyTrainingRecords.png" />
+    <Content Include="Content\Images\MobileTrainingRecord.png" />
+    <Content Include="Content\Images\MobileTrainingSessions.png" />
+    <Content Include="Content\Images\MyCourses.png" />
+    <Content Include="Content\Images\MyTrainingRecords.png" />
+    <Content Include="Content\Images\Courses.png" />
+    <Content Include="Content\Images\TrainingSessions.png" />
+    <Content Include="Content\Images\TrainingRecord.png" />
+    <Content Include="Content\Images\icons-18-black.png" />
+    <Content Include="Content\Images\icons-18-white.png" />
+    <Content Include="Content\Images\icons-36-black.png" />
+    <Content Include="Content\Images\icons-36-white.png" />
+    <Content Include="Content\Images\JobRoles.png" />
+    <Content Include="Content\Images\MobileEmployees.png" />
+    <Content Include="Content\Images\MobileSettings.png" />
+    <Content Include="Content\Images\msls-black-icons-18.png" />
+    <Content Include="Content\Images\msls-black-icons-36.png" />
+    <Content Include="Content\Images\msls-loader-dark.gif" />
+    <Content Include="Content\Images\msls-loader-light.gif" />
+    <Content Include="Content\Images\msls-white-icons-18.png" />
+    <Content Include="Content\Images\msls-white-icons-36.png" />
+    <Content Include="Content\Images\msls-blue-icons-36.png" />
+    <Content Include="Content\Images\Settings.png" />
+    <Content Include="Content\jquery.mobile-1.3.0.css" />
+    <Content Include="Content\jquery.mobile-1.3.0.min.css" />
+    <Content Include="Content\jquery.mobile.structure-1.3.0.css" />
+    <Content Include="Content\jquery.mobile.structure-1.3.0.min.css" />
+    <Content Include="Content\jquery.mobile.theme-1.3.0.css" />
+    <Content Include="Content\jquery.mobile.theme-1.3.0.min.css" />
+    <Content Include="Content\light-theme-2.0.0.css" />
+    <Content Include="Content\msls-2.0.0.css" />
+    <Content Include="Content\msls-2.0.0.min.css" />
+    <Content Include="Content\msls-dark-2.0.0.css" />
+    <Content Include="Content\msls-light-2.0.0.css" />
+    <Content Include="default.htm" />
+    <Content Include="Content\user-customization.css" />
+    <Content Include="Content\Images\user-logo.png" />
+    <Content Include="Content\Images\user-splash-screen.png" />
+    <Content Include="Content\Web.config" />
+    <Content Include="packages.config" />
+    <Content Include="Screens\AddEditCourse.lsml.js">
+      <DependentUpon>AddEditCourse.lsml</DependentUpon>
+    </Content>
+    <Content Include="Screens\AddEditCourseStatus.lsml.js">
+      <DependentUpon>AddEditCourseStatus.lsml</DependentUpon>
+    </Content>
+    <Content Include="Screens\AddEditEmployee.lsml.js">
+      <DependentUpon>AddEditEmployee.lsml</DependentUpon>
+    </Content>
+    <Content Include="Screens\AddEditEmployeeCourseAssignment.lsml.js">
+      <DependentUpon>AddEditEmployeeCourseAssignment.lsml</DependentUpon>
+    </Content>
+    <Content Include="Screens\AddEditEmployeeGroup.lsml.js">
+      <DependentUpon>AddEditEmployeeGroup.lsml</DependentUpon>
+    </Content>
+    <Content Include="Screens\AddEditEmployeeGroupCourseAssignment.lsml.js">
+      <DependentUpon>AddEditEmployeeGroupCourseAssignment.lsml</DependentUpon>
+    </Content>
+    <Content Include="Screens\AddEditEmployeeJobRole.lsml.js">
+      <DependentUpon>AddEditEmployeeJobRole.lsml</DependentUpon>
+    </Content>
+    <Content Include="Screens\AddEditEmployeeTrainingRecord.lsml.js">
+      <DependentUpon>AddEditEmployeeTrainingRecord.lsml</DependentUpon>
+    </Content>
+    <Content Include="Screens\AddEditJobRole.lsml.js">
+      <DependentUpon>AddEditJobRole.lsml</DependentUpon>
+    </Content>
+    <Content Include="Screens\AddEditJobRoleCourseAssignment.lsml.js">
+      <DependentUpon>AddEditJobRoleCourseAssignment.lsml</DependentUpon>
+    </Content>
+    <Content Include="Screens\AddEditTrainingSession.lsml.js">
+      <DependentUpon>AddEditTrainingSession.lsml</DependentUpon>
+    </Content>
+    <Content Include="Screens\AddEditTrainingSessionAndAttendees.lsml.js">
+      <DependentUpon>AddEditTrainingSessionAndAttendees.lsml</DependentUpon>
+    </Content>
+    <Content Include="Screens\AddEditTrainingSessionAttendee.lsml.js">
+      <DependentUpon>AddEditTrainingSessionAttendee.lsml</DependentUpon>
+    </Content>
+    <Content Include="Screens\BrowseCourses.lsml.js">
+      <DependentUpon>BrowseCourses.lsml</DependentUpon>
+    </Content>
+    <Content Include="Screens\BrowseCourseStatuses.lsml.js">
+      <DependentUpon>BrowseCourseStatuses.lsml</DependentUpon>
+    </Content>
+    <Content Include="Screens\BrowseEmployeeGroups.lsml.js">
+      <DependentUpon>BrowseEmployeeGroups.lsml</DependentUpon>
+    </Content>
+    <Content Include="Screens\BrowseEmployees.lsml.js">
+      <DependentUpon>BrowseEmployees.lsml</DependentUpon>
+    </Content>
+    <Content Include="Screens\BrowseJobRoles.lsml.js">
+      <DependentUpon>BrowseJobRoles.lsml</DependentUpon>
+    </Content>
+    <Content Include="Screens\Home.lsml.js">
+      <DependentUpon>Home.lsml</DependentUpon>
+    </Content>
+    <Content Include="Screens\MobileHome.lsml.js">
+      <DependentUpon>MobileHome.lsml</DependentUpon>
+    </Content>
+    <Content Include="Screens\Settings.lsml.js">
+      <DependentUpon>Settings.lsml</DependentUpon>
+    </Content>
+    <Content Include="Scripts\datajs-1.1.1.js" />
+    <Content Include="Scripts\datajs-1.1.1.min.js" />
+    <Content Include="Scripts\jquery-1.9.1.intellisense.js" />
+    <Content Include="Scripts\jquery-1.9.1.js" />
+    <Content Include="Scripts\jquery-1.9.1.min.js" />
+    <Content Include="Scripts\jquery.mobile-1.3.0-vsdoc.js" />
+    <Content Include="Scripts\jquery.mobile-1.3.0.js" />
+    <Content Include="Scripts\jquery.mobile-1.3.0.min.js" />
+    <Content Include="Scripts\msls.js" />
+    <Content Include="Scripts\msls-2.0.0-vsdoc.js" />
+    <Content Include="Scripts\msls-2.0.0.js" />
+    <Content Include="Scripts\msls-2.0.0.min.js" />
+    <Content Include="Scripts\winjs-1.0.js" />
+    <Content Include="Scripts\winjs-1.0.min.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <ServiceMetadataReference Include="..\TrainingManagerApp.Server\TrainingManagerApp.Server.csproj">
+      <Visible>false</Visible>
+    </ServiceMetadataReference>
+  </ItemGroup>
+  <ItemGroup>
+    <LightSwitchModel Include="Properties\Client.lsml">
+      <ProjectCritical>true</ProjectCritical>
+    </LightSwitchModel>
+    <LightSwitchModel Include="Properties\Proxies.lsml" />
+    <LightSwitchModel Include="Screens\AddEditCourse.lsml" />
+    <LightSwitchModel Include="Screens\AddEditCourseStatus.lsml" />
+    <LightSwitchModel Include="Screens\AddEditEmployee.lsml" />
+    <LightSwitchModel Include="Screens\AddEditEmployeeCourseAssignment.lsml" />
+    <LightSwitchModel Include="Screens\AddEditEmployeeGroup.lsml" />
+    <LightSwitchModel Include="Screens\AddEditEmployeeGroupCourseAssignment.lsml" />
+    <LightSwitchModel Include="Screens\AddEditEmployeeJobRole.lsml" />
+    <LightSwitchModel Include="Screens\AddEditEmployeeTrainingRecord.lsml" />
+    <LightSwitchModel Include="Screens\AddEditJobRole.lsml" />
+    <LightSwitchModel Include="Screens\AddEditJobRoleCourseAssignment.lsml" />
+    <LightSwitchModel Include="Screens\AddEditTrainingSession.lsml" />
+    <LightSwitchModel Include="Screens\AddEditTrainingSessionAndAttendees.lsml" />
+    <LightSwitchModel Include="Screens\AddEditTrainingSessionAttendee.lsml" />
+    <LightSwitchModel Include="Screens\BrowseCourses.lsml" />
+    <LightSwitchModel Include="Screens\BrowseCourseStatuses.lsml" />
+    <LightSwitchModel Include="Screens\BrowseEmployeeGroups.lsml" />
+    <LightSwitchModel Include="Screens\BrowseEmployees.lsml" />
+    <LightSwitchModel Include="Screens\BrowseEmployeeTrainingRecords.lsml" />
+    <LightSwitchModel Include="Screens\BrowseJobRoles.lsml" />
+    <LightSwitchModel Include="Screens\BrowseMyCourses.lsml" />
+    <LightSwitchModel Include="Screens\BrowseMyTrainingRecords.lsml" />
+    <LightSwitchModel Include="Screens\BrowseTrainingSessions.lsml" />
+    <LightSwitchModel Include="Screens\Home.lsml" />
+    <LightSwitchModel Include="Screens\MobileHome.lsml" />
+    <LightSwitchModel Include="Screens\Settings.lsml" />
+  </ItemGroup>
+  <ItemGroup>
+    <_ClientBuildFile Include="GeneratedArtifacts\model.json">
+      <SubFolder>Content\Resources\Generated</SubFolder>
+    </_ClientBuildFile>
+    <_ClientBuildFile Include="GeneratedArtifacts\data.js">
+      <SubFolder>Scripts\Generated</SubFolder>
+    </_ClientBuildFile>
+    <_ClientBuildFile Include="GeneratedArtifacts\viewModel.js">
+      <SubFolder>Scripts\Generated</SubFolder>
+    </_ClientBuildFile>
+    <_ClientBuildFile Include="GeneratedArtifacts\usercode.js">
+      <SubFolder>Scripts\Generated</SubFolder>
+    </_ClientBuildFile>
+    <_ClientBuildFile Include="GeneratedArtifacts\resources.js">
+      <SubFolder>Scripts\Generated</SubFolder>
+    </_ClientBuildFile>
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\LightSwitch\v4.0\MobileClient\Microsoft.LightSwitch.MobileClient.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\LightSwitch\v4.0\Microsoft.LightSwitch.Build.Tasks.targets" />
+  <!-- Redefine the targets to be empty -->
+  <Target Name="GetXapOutputFile" />
+  <PropertyGroup>
+    <AppxPackage>false</AppxPackage>
+    <AppxGeneratePriEnabled>false</AppxGeneratePriEnabled>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
